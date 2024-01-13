@@ -49,7 +49,7 @@ const reservecourse=async(id)=>{
         }
       
         const response=await fetch(reservecourseURL,{
-            method:"post",
+            method:"POST",
             headers:{
                 "Content-Type":"application/json",
             },
