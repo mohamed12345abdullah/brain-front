@@ -1,4 +1,6 @@
 
+
+
 const getcoursesURL="https://server-wheat-five.vercel.app/courses/getAllCourses";
 const reservecourseURL="http://localhost:4000/clients/reserveCourse/:id";
 const signupURL="http://localhost:4000/clients/addclient";
