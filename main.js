@@ -180,7 +180,7 @@ const profile=async()=>{
     <div> back end developer </div>
 </div>
     <div class="image">
-    <img src="../../default.jpg" alt="not found">
+    <img src="./default.jpg" alt="not found">
     </div>
 
 
