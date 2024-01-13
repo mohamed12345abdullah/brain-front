@@ -1,5 +1,4 @@
-
-const server="https://server-wheat-five.vercel.app";
+const server="http://localhost:5000";
 
 const getcoursesURL=server+"/courses/getAllCourses";
 const reservecourseURL=server+"/clients/reserveCourse/:id";
@@ -79,9 +78,9 @@ const signup=async()=>{
         picture:signForm.picture.value
     }
     let response=await fetch(signupURL,{
-        method:"POST",
+        method:"post",
         headers:{
-            'Content-Type': 'application/json',
+            "Content-Type":"application/json",
         },
         body:JSON.stringify(data)
     })
@@ -91,27 +90,65 @@ const signup=async()=>{
     window.location.href="index.html";
 
 }
+// const signup = async () => {
+//     try {
+//         const signForm = document.getElementById("signForm").elements;
+//         const data = {
+//             email: signForm.email.value,
+//             name: signForm.name.value,
+//             password: signForm.password.value,
+//             picture: signForm.picture.value
+//         };
+//         console.log(data);
+//         let response = await fetch(signupURL, {
+//             method: "POST",
+//             headers: {
+//                 'Content-Type': 'application/json',
+//             },
+//             body: JSON.stringify(data),
+           
+//         });
+
+//         if (!response.ok) {
+//             throw new Error(`Signup failed with status: ${response.status}`);
+//         }
+
+//         let token = await response.json();
+//         console.log(token);
+
+//         localStorage.setItem("token", token);
+//         window.location.href = "index.html";
+//     } catch (error) {
+//         console.error('Signup error:', error);
+//         // Handle error, e.g., display a message to the user
+//     }
+// };
 
 
 const login=async()=>{
+    try{
     const loginForm=document.getElementById("login").elements;
     let data={
         email:loginForm.email.value,
         password:loginForm.password.value
     }
-
+    console.log(data);
     let response= await fetch(loginURL,{
-        method:"post",
+        method:"POST",
         headers:{
-            "Content-Type":"application/json"
+            "Content-Type":"application/json",
         },
-        body:JSON.stringify(data)
+        body:JSON.stringify(data),
+        
     })
 
     const token=await response.json();
     console.log(token);
     localStorage.setItem("token",token);
     window.location.href="profile.html";
+    }catch{
+        console.log( "not fouunnd");
+    }
 }
 
 
@@ -135,15 +172,21 @@ const profile=async()=>{
         window.location.href="login.html";
     }
     const user=await response.json();
-    // console.log(" user data ",user.status);
+    console.log(" user data ",user.data);
     profile.innerHTML+=`
+    <div class="data">
+    <div> ${user.data.oldClient.name}</div> 
+    <div> age  22</div>
+    <div> back end developer </div>
+</div>
     <div class="image">
     <img src="../../default.jpg" alt="not found">
     </div>
-    
+
 
     `;
-{/* <div class="name"> name : ${user.data.oldClient.name}</div> */}
+
+// {/* <div class="name"> name : ${user.data.oldClient.name}</div> */}
     user.data.courses.forEach(element => {
         courses.innerHTML+=`
         <div class="course">
