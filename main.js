@@ -1,11 +1,11 @@
 
+const server="https://server-wheat-five.vercel.app";
 
-
-const getcoursesURL="https://server-wheat-five.vercel.app/courses/getAllCourses";
-const reservecourseURL="http://localhost:4000/clients/reserveCourse/:id";
-const signupURL="http://localhost:4000/clients/addclient";
-const loginURL="http://localhost:4000/clients/login";
-const getUserURL="http://localhost:4000/clients/getClient";
+const getcoursesURL=server+"/courses/getAllCourses";
+const reservecourseURL=server+"/clients/reserveCourse/:id";
+const signupURL=server+"/clients/addclient";
+const loginURL=server+"/clients/login";
+const getUserURL=server+"/clients/getClient";
 let buyButtons;
 
 
