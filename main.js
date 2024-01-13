@@ -79,7 +79,7 @@ const signup=async()=>{
         picture:signForm.picture.value
     }
     let response=await fetch(signupURL,{
-        method:"post",
+        method:"POST",
         headers:{
             "Content-Type":"application/json",
         },
