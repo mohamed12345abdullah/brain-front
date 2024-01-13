@@ -1,0 +1,137 @@
+
+body{
+    /* color: rgb(239, 245, 236); */
+
+    /* color: black; */
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-image: url("../back.jpg"); */
+    
+}
+
+nav ul{
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    list-style: none;
+    width: 100%;
+}
+
+nav>ul>.nav-ele{
+    /* background-color: aqua; */
+    /* display: inline-block; */
+    float: left;
+    width: 25%;
+    text-align: center;
+
+}
+.nav-ele a{
+    /* color: aliceblue; */
+    text-decoration: none;
+    /* font-style: italic; */
+}
+
+#side-bar-btn{
+    margin: 0;
+    opacity: 0;
+    width: 0;
+}
+
+:has(#side-bar-btn:checked) .side-bar{
+    /* float: right; */
+    background-color: rgb(255, 0, 13);
+
+    transition-duration: 1s;
+    transform: translateX(0);
+    opacity: 1;
+    width: 50%;
+    
+  
+}
+
+
+.side-bar{
+    transition: all;
+    transition-duration: 1s;
+    margin: 0;
+    width: 0%;
+    position: absolute;
+    right: 0;
+    height: 400px;
+    background-color: aquamarine;
+    /* transform: translateX(100%); */
+    opacity: 1;
+    /* display: none; */
+}
+
+
+
+
+
+.profile{
+    box-sizing: border-box;
+    /* margin: 1rem; */
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    /* align-items: center; */
+    width: 100%;
+    /* background-color: cornflowerblue; */
+    height: max-content;
+    overflow: hidden;
+}
+.profile .image{
+    padding: 10px;
+    /* background-color: rgb(187, 20, 56); */
+    width: calc(50% - 20px) ;
+}
+
+.profile img{
+    width: 100%;
+}
+
+.profile .data{
+
+    padding-top: 2rem;
+    text-align: center;
+    width: 50%;
+    /* height:300px ; */
+    margin: 0;
+    /* height: max-content; */
+    /* background-color: rgb(210, 223, 197); */
+    float: right;
+    
+}
+
+
+
+
+
+
+.courses{
+    width: 100%;
+    /* background-color: aquamarine; */
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* justify-items: center; */
+    /* align-items: center; */
+    /* align-content: center; */
+    justify-content: space-around;
+
+}
+
+.course{
+    width: 380px;
+    /* background-color: rgb(62, 34, 188); */
+    margin: 5px;
+    text-align: center;
+}
+
+.course img{
+    width: 100%;
+    
+}
