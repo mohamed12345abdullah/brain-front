@@ -1,4 +1,4 @@
-const server="http://localhost:5000";
+const server="https://server-wheat-five.vercel.app";
 
 const getcoursesURL=server+"/courses/getAllCourses";
 const reservecourseURL=server+"/clients/reserveCourse/:id";
