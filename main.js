@@ -180,7 +180,7 @@ const profile=async()=>{
     <div> back end developer </div>
 </div>
     <div class="image">
-    <img src="./default.jpg" alt="not found">
+    <img src="default.jpg" alt="not found">
     </div>
 
 
@@ -190,7 +190,7 @@ const profile=async()=>{
     user.data.courses.forEach(element => {
         courses.innerHTML+=`
         <div class="course">
-        <img src="../تنزيل.jpg" alt="">
+        <img src="./تنزيل.jpg" alt="">
 
             ${JSON.stringify(element.title)}
         </div>
