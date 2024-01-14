@@ -136,7 +136,7 @@ const signup=async()=>{
 
 const login=async()=>{
     try{
-    const loginForm=document.getElementById("login").elements;
+    const loginForm=document.getElementById("login-form").elements;
     let data={
         email:loginForm.email.value,
         password:loginForm.password.value
@@ -155,8 +155,8 @@ const login=async()=>{
     console.log(token);
     localStorage.setItem("token",token);
     window.location.href="profile.html";
-    }catch{
-        console.log( "not fouunnd");
+    }catch(e){
+        console.log( "not fouunnd" ,e);
     }
 }
 
@@ -184,7 +184,7 @@ const profile=async()=>{
     console.log(" user data ",user.data);
     profile.innerHTML+=`
      <div class="profile-details">
-    <img src="../../default.jpg" alt="Profile Picture">
+    <img src="default.jpg" alt="Profile Picture">
     <div class="user-info">
         <h2>${user.data.oldClient.name}</h2>
         <p>Age: 22</p>
