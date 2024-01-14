@@ -6,31 +6,105 @@
     <meta http-equiv='pragma' content='no-cache'>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Brain Up Academy</title>
+
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="chat.css">
+    <style>
+     
+       
+    </style>
 </head>
-<body onpageshow="getAllCourses()" >
+<body onpageshow="getAllCourses()">
+    <nav>
+        <a href="./signup.html">sign Up</a>
+        <a href="#">Courses</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact</a>
+    </nav>
 
-     main page 
-     <a href="./login.html"> log in   </a>
-
-     <section>
-
-        <div id="courses">
-
-            <div class="course"> 
-                <div class="title "> ${element.title}  </div>
-                <div class=" price"> ${element.price} </div>
-                
+    <div class="about-section">
+        <h1>About Us</h1>
+        
+        <p>
+            Welcome to our website! We are a passionate team dedicated to [describe your mission or purpose].
+            Our journey began [mention when and how your business or project started], and since then, we have been
+            committed to [outline your values, goals, or achievements]. 
+        </p>
+    
+        <p>
+            At [your company or team name], we believe in [mention any key principles or beliefs]. Our team consists
+            of [briefly introduce key team members or roles] working together to [achieve a common goal or purpose].
+            We strive to [mention any specific goals or initiatives].
+        </p>
+    
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide">
+                    <div class="about-image"><img src="تنزيل.jpg" alt="Image 1"></div>
+                </div>
+                <div class="slide">
+                    <div class="about-image"><img src="تنزيل.jpg" alt="Image 2"></div>
+                </div>
+                <div class="slide">
+                    <div class="about-image"><img src="تنزيل.jpg" alt="Image 2"></div>
+                </div>
+                <div class="slide">
+                    <div class="about-image"><img src="تنزيل.jpg" alt="Image 2"></div>
+                </div>
+                <div class="slide">
+                    <div class="about-image"><img src="تنزيل.jpg" alt="Image 2"></div>
+                </div>
+                <!-- Add more slides as needed -->
             </div>
-                <input data-id="${element._id}" type="button" value=" buy course" class="buyButton">
-        
-            
+    
+            <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="next" onclick="changeSlide(1)">&#10095;</button>
         </div>
+    </div>
+    
+
+    <section id="courses">
+        <!-- Each course will have an image, title, description, price, and a buy button -->
+        <!-- Example:
+        <div class="course">
+            <img src="course-image.jpg" alt="Course Image">
+            <div class="title">Course Title</div>
+            <div class="description">Course Description</div>
+            <div class="price">$99.99</div>
+            <input data-id="course-id" type="button" value="buy course" class="buyButton">
+        </div>
+        -->
+    </section>
+
+
+
+    <section class="contact-us">
         
-     </section>
+        <div class="contact-container">
+            <h1>Contact Us</h1>
+            
+            <div class="social-links">
+                <a href="https://www.youtube.com/your-channel" target="_blank" title="YouTube Channel">
+                    <i class="fab fa-youtube fa-2x"></i>
+                </a>
+                
+                <a href="https://www.facebook.com/your-page" target="_blank" title="Facebook Page">
+                    <i class="fab fa-facebook fa-2x"></i>
+                </a>
+                
+                <a href="https://wa.me/1234567890" target="_blank" title="WhatsApp">
+                    <i class="fab fa-whatsapp fa-2x"></i>
+                </a>
+            </div>
+        </div>
+    </section>
 
 
-
-    <script src="main.js"> </script>
+  
+<footer class="footer-copyright">Copyright © 2024 Your Company Name</footer>
+    <script src="main.js"></script> 
+    <script src="chat.js"></script> 
 </body>
 </html>

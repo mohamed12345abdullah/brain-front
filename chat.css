@@ -1,0 +1,183 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+nav {
+    background-color: #1d7fda;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    margin: 0 15px;
+    font-size: 18px;
+    transition: color 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: #1d1e1f;
+}
+
+section {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.course {
+    border: 1px solid #ddd;
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px;
+    width: 350px;
+    box-sizing: border-box;
+}
+
+.course img {
+    
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.course .title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.course .description {
+    margin-bottom: 15px;
+}
+
+.course .price {
+    color: #007bff;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.buyButton {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.buyButton:hover {
+    background-color: #0056b3;
+}
+
+
+/* Center the Contact Us section */
+.contact-us{
+    
+    display: block;
+}
+.contact-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.social-links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+    font-size: 24px;
+    transition: color 0.3s ease-in-out;
+}
+
+.social-links a:hover {
+    color: #007bff;
+}
+
+
+
+
+
+
+
+
+
+
+.about-section {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+p {
+    text-align: justify;
+    line-height: 1.6;
+    color: #555;
+}
+
+.slider-container {
+    position: relative;
+    max-width: 100%;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    transition: transform 1.5s ease-in-out; /* Change transition time here */
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }

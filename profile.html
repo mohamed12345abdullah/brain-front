@@ -1,46 +1,119 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv='cache-control' content='no-cache'> 
+    <meta http-equiv='expires' content='0'> 
+    <meta http-equiv='pragma' content='no-cache'>
+    <link rel="stylesheet" href="profile.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<body onpageshow="profile()">
+    <div class="profile-container">
+        <header>
+            <h1>User Profile</h1>
+        </header>
+
+        <nav>
+            <ul>
+                <li class="nav-item"> <a href="index.html">Courses</a></li>
+                <li class="nav-item"> <a href="#">Contact Us</a></li>
+                <li class="nav-item"> <a href="#">About</a></li> 
+            </ul>
+        </nav>
+
+        <section class="profile">
+            <div class="profile-details">
+                <img src="../../default.jpg" alt="Profile Picture">
+                <div class="user-info">
+                    <h2>${user.data.oldClient.name}</h2>
+                    <p>Age: 22</p>
+                    <p>Occupation: Back End Developer</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="courses">
+            <div class="course">
+                ${JSON.stringify(element.title)}
+                <img src="../تنزيل.jpg" alt="">
+                
+            </div>
+
+            <!-- Add more course elements as needed -->
+        </section>
+
+        <footer>
+            <p>Contact: john.doe@email.com</p>
+        </footer>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html> 
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta http-equiv='cache-control' content='no-cache'> 
     <meta http-equiv='expires' content='0'> 
     <meta http-equiv='pragma' content='no-cache'>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="profile.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>User Profile</title>
 </head>
-<body onpageshow="profile()" >
-    <nav>
-        <ul>
-            <li class="nav-ele"> <a href="index.html"> courses </a></li>
-            <li class="nav-ele"> <a href=""> contact us </a></li>
-            <li class="nav-ele"> <a href=""> about </a></li> 
-            <input id="side-bar-btn" class="nav-ele" type="checkbox">
-            <label class="nav-ele" style="cursor: pointer;" for="side-bar-btn"> check me </label>
-        </ul>
-        <!-- <img src="../../se" alt="not found"> -->
-        <div class="side-bar">
-            
+<body onpageshow="profile()">
+    <div class="profile-container">
+        <header>
+            <h1>User Profile</h1>
+        </header>
 
-        </div>
-    </nav>
+        <nav>
+            <ul>
+                <li class="nav-item"> <a href="index.html">Courses</a></li>
+                <li class="nav-item"> <a href="#">Contact Us</a></li>
+                <li class="nav-item"> <a href="#">About</a></li> 
+            </ul>
+        </nav>
 
-    <section class="profile">
-        
-        <!-- <img src="../../server/uploads/profile/default.jpg" alt=""> -->
-        <!-- <div class="data">
-            <div> abdullah mohamed sobhi </div> 
-            <div> age  22</div>
-            <div> back end developer </div>
-        </div> -->
-    </section>
+        <section class="profile">
+            <!-- <div class="profile-details">
+                <img src="../../default.jpg" alt="Profile Picture">
+                <div class="user-info">
+                    <h2>${user.data.oldClient.name}</h2>
+                    <p>Age: 22</p>
+                    <p>Occupation: Back End Developer</p>
+                </div>
+            </div> -->
+        </section>
 
-    <section class="courses">
-        <!-- <div class="corurse">
+        <section class="courses">
+            <!-- <div class="course">
+                <img src="تنزيل.jpg" alt="Course Image">
+                <div class="course-details">
+                    <h3>Course Title</h3>
+                    <p>Instructor: John Doe</p>
+                    <p>Description: A brief description of the course content goes here.</p>
+                    <p>Progress:</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 70%;"></div>
+                    </div>
+                </div>
+            </div>
+             -->
+            <!-- Add more course elements as needed -->
+        </section>
 
-        </div> -->
-    </section>
-    
+        <footer>
+            <p>Contact: john.doe@email.com</p>
+        </footer>
+    </div>
+
     <script src="main.js"></script>
 </body>
 </html>
+

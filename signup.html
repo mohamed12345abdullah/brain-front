@@ -6,20 +6,120 @@
     <meta http-equiv='pragma' content='no-cache'>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #02154b, #0f6397, #04639e);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #signup-container {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            width: 350px;
+            max-width: 90%;
+            text-align: center;
+            position: relative;
+        }
+
+        #signup-container:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #3498db, #8e44ad);
+            clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+            z-index: -1;
+        }
+
+        #signup-container h1 {
+            color: #3498db;
+            margin: 20px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        #signForm {
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 1;
+        }
+
+        #signForm input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: 1px solid rgb(10, 111, 194);
+            border-radius: 25px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+        }
+
+        #signForm label {
+            
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: 1px solid rgb(10, 111, 194);
+            border-radius: 25px;
+            background: #a0cce9;
+            /* color: #ffffff; */
+            /* font-size: 18px; */
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #signForm label:hover {
+            background-color: #2980b9;
+        }
+
+        #signForm input[type="file"] {
+            display: none;
+        }
+
+        #signForm input[type="button"] {
+            background-color: #3498db;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        #signForm input[type="button"]:hover {
+            background-color: #2980b9;
+        }
+    </style>
 </head>
-<body >
-    sign Up page 
-
-    <form id="signForm" action="" method="post">
-
-        <input type="email" name="email" placeholder="email" >
-        <input type="text" name="name" placeholder="name">
-        <input type="password" name="password" placeholder="password">
-        <input type="file" name="picture">
-        <input type="button" value="submit" onclick="signup()">
-
-    </form>
+<body>
+    <div id="signup-container">
+        <h1>Sign Up</h1>
+        <form id="signForm" action="" method="post">
+            <input type="email" name="email" placeholder="Email">
+            <input type="text" name="name" placeholder="Name">
+            <input type="password" name="password" placeholder="Password">
+            <input type="file" name="picture" id="fileInput">
+            <label for="fileInput">Choose picture </label>
+            <input type="button" value="Submit" onclick="signup()">
+        </form>
+    </div>
 
     <script src="main.js"></script>
 </body>

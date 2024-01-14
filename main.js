@@ -18,13 +18,22 @@ const getAllCourses=async ()=>{
         document.getElementById("courses").innerHTML+=
         `
         <div class="course"> 
+        <img src="تنزيل.jpg" alt="Course Image">
         <div class="title "> ${element.title}  </div>
+        <div class="description">Course Description</div>
         <div class=" price"> ${element.price} </div>
-        
-        </div>
         <input data-id="${element._id}" type="button" value=" buy course" class="buyButton">
 
+        </div>
+
         `;
+    //     <div class="course">
+    //     <img src="course-image.jpg" alt="Course Image">
+    //     <div class="title">Course Title</div>
+    //     <div class="description">Course Description</div>
+    //     <div class="price">$99.99</div>
+    //     <input data-id="course-id" type="button" value="buy course" class="buyButton">
+    // </div>
         
     }
     buyButtons= Array.from( document.querySelectorAll(".buyButton"));
@@ -174,15 +183,14 @@ const profile=async()=>{
     const user=await response.json();
     console.log(" user data ",user.data);
     profile.innerHTML+=`
-    <div class="data">
-    <div> ${user.data.oldClient.name}</div> 
-    <div> age  22</div>
-    <div> back end developer </div>
-</div>
-    <div class="image">
-    <img src="default.jpg" alt="not found">
+     <div class="profile-details">
+    <img src="../../default.jpg" alt="Profile Picture">
+    <div class="user-info">
+        <h2>${user.data.oldClient.name}</h2>
+        <p>Age: 22</p>
+        <p>Occupation: Back End Developer</p>
     </div>
-
+    </div> 
 
     `;
 
@@ -190,21 +198,28 @@ const profile=async()=>{
     user.data.courses.forEach(element => {
         courses.innerHTML+=`
         <div class="course">
-        <img src="./تنزيل.jpg" alt="">
-
-            ${JSON.stringify(element.title)}
+        <img src="تنزيل.jpg" alt="Course Image">
+        <div class="course-details">
+            <h3>${JSON.stringify(element.title)}</h3>
+            <p>Instructor: John Doe</p>
+            <p>Description: A brief description of the course content goes here.</p>
+            <p>Progress:</p>
+            <div class="progress-bar">
+                <div class="progress" style="width: 70%;"></div>
+            </div>
         </div>
+    </div>
         `
     });
 
-
-    user.data.oldClient.tasks.forEach(e=>{
-        courses.innerHTML+=`
-        <div class="tasks">
-        ${e.json()}
-        </div>
-        `
-    })
+    // ${JSON.stringify(element.title)}
+    // user.data.oldClient.tasks.forEach(e=>{
+    //     courses.innerHTML+=`
+    //     <div class="tasks">
+    //     ${e.json()}
+    //     </div>
+    //     `
+    // })
 
 
 }
