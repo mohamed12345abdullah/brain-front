@@ -1,5 +1,5 @@
 if (typeof serverURL === 'undefined') {
-    var serverURL = "https://server-wheat-five.vercel.app";
+    var serverURL = "http://localhost:5000"||"https://server-wheat-five.vercel.app";
 }
 
 const getcoursesURL = serverURL + "/courses/getAllCourses";
@@ -136,6 +136,8 @@ const profile = async () => {
         console.log("run", localStorage.getItem("token"));
         const profile = document.querySelector(".profile");
         const coursesContainer = document.querySelector(".courses");
+        const taskContainer = document.querySelector(".tasks");
+
 
         const data = {
             token: localStorage.getItem("token")
@@ -183,6 +185,12 @@ const profile = async () => {
                 </div>
             `;
         });
+
+        // user.data.tasks.forEach(task=>{
+        //     taskContainer.innerHTML+=`
+        //     <div> ${task.videoUrl  }</div>`;
+
+        // })
     } catch (error) {
         console.error('Error in profile:', error);
     }
