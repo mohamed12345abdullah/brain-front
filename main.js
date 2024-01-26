@@ -1,5 +1,6 @@
 if (typeof serverURL === 'undefined') {
-    var serverURL = "http://localhost:5000"||"https://server-wheat-five.vercel.app";
+    var serverURL = false||"https://server-wheat-five.vercel.app";
+    // "http://localhost:5000"
 }
 
 const getcoursesURL = serverURL + "/courses/getAllCourses";
@@ -7,6 +8,8 @@ const reservecourseURL = serverURL + "/clients/reserveCourse/"; // Removed ":id"
 const signupURL = serverURL + "/clients/addclient";
 const loginURL = serverURL + "/clients/login";
 const getUserURL = serverURL + "/clients/getClient";
+const addREQURL = serverURL + "/requests/addReq";
+
 let buyButtons;
 
 const getAllCourses = async () => {
@@ -33,7 +36,10 @@ const getAllCourses = async () => {
 
         buyButtons.forEach((button) => {
             button.addEventListener("click", () => {
-                reserveCourse(button.dataset.id);
+                // reserveCourse(button.dataset.id);
+                
+                addREQ(button.dataset.id);
+
             });
         });
     } catch (error) {
@@ -41,41 +47,43 @@ const getAllCourses = async () => {
     }
 }
 
-const reserveCourse = async (id) => {
-    try {
-        let token = localStorage.getItem("token");
-        console.log(id);
-
-        if (token) {
-            // Reserve request 
-            let data = {
-                token: token,
-                courseId: id,
-            };
-
-            const response = await fetch(reservecourseURL + id, { // Changed the URL
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(data),
-            });
-
-            console.log(await response.status);
-
-            if (await response.status == 401) {
-                window.location.href = "login.html";
-            } else if (await response.status == 200) {
-                window.location.href = "https://wa.me/message/ZTYNDKNVWOU4P1a";
-            }
-        } else {
-            // Go to sign up page 
-            window.location.href = "signup.html";
+const addREQ=async(id)=>{
+try {
+    let token = localStorage.getItem("token");
+    console.log(id);
+    if(token){  
+        let data = {
+            token: token,
+            courseId: id,
+        };
+        // throw("errrrrrrrrr")
+        const response = await fetch(addREQURL , { 
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        });
+        
+        if (await response.status == 401) {
+            window.location.href = "login.html";
+        } else if (await response.status == 200) {
+            window.location.href="submit.html";
         }
-    } catch (error) {
-        console.error('Error reserving course:', error);
-    }
+    }     
+    else{
+        window.location.href = "signup.html";
+
+    }  
+} catch (error) {
+    console.error('Error :', error);
+
 }
+
+
+}
+
+
 
 const signup = async () => {
     try {
@@ -84,6 +92,7 @@ const signup = async () => {
             email: signForm.email.value,
             name: signForm.name.value,
             password: signForm.password.value,
+            number: signForm.number.value,
             picture: signForm.picture.value
         };
 
@@ -157,7 +166,7 @@ const profile = async () => {
 
         const user = await response.json();
         console.log(" user data ", user.data);
-
+        window.localStorage.setItem("email",user.data.oldClient.email)
         profile.innerHTML += `
             <div class="profile-details">
                 <img src="default.jpg" alt="Profile Picture">
@@ -170,8 +179,9 @@ const profile = async () => {
         `;
 
         user.data.courses.forEach(element => {
+            console.log(element);
             coursesContainer.innerHTML += `
-                <div class="course">
+                <div class="course" data-course_id=${element._id}>
                     <img src="تنزيل.jpg" alt="Course Image">
                     <div class="course-details">
                         <h3>${JSON.stringify(element.title)}</h3>
@@ -186,11 +196,17 @@ const profile = async () => {
             `;
         });
 
-        // user.data.tasks.forEach(task=>{
-        //     taskContainer.innerHTML+=`
-        //     <div> ${task.videoUrl  }</div>`;
+    let coursesElement=document.querySelectorAll(".course");
+    console.log(coursesElement);
+    coursesElement.forEach(e=>{
+        e.addEventListener("click",()=>{
+            console.log(e.dataset.course_id);
+            localStorage.setItem("courseId",e.dataset.course_id);
+            window.location.href="course.html";
+        })
+    })
 
-        // })
+    
     } catch (error) {
         console.error('Error in profile:', error);
     }

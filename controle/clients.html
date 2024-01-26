@@ -105,6 +105,8 @@
     </form>
 
     <script>
+        const serverUrl="https://server-wheat-five.vercel.app";
+        const localserver="http://localhost:5000";
         document.addEventListener('DOMContentLoaded', function () {
             fetchGroups();
             fetchClients();
@@ -112,7 +114,7 @@
 
         async function fetchGroups() {
             try {
-                const response = await fetch('http://localhost:5000/groups/getGroups');
+                const response = await fetch(serverUrl+'/groups/getGroups');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -138,7 +140,7 @@
 
         async function fetchClients() {
             try {
-                const response = await fetch('http://localhost:5000/clients/getAllClients');
+                const response = await fetch(serverUrl+'/clients/getAllClients');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -188,7 +190,7 @@
                 };
 
                 try {
-                    const response = await fetch('http://localhost:5000/clients/addGroup', {
+                    const response = await fetch(serverUrl+'/clients/addGroup', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',

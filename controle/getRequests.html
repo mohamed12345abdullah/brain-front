@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="getRequests.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Fetch Example</title>
+    <style>
+        /* Reset some default styles */
+    </style>
+</head>
+<body>
+
+<table id="apiTable">
+    <thead>
+        <tr>
+            <th>Checkbox</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Number</th>
+            <th>Course ID</th>
+            <!-- Add more columns as needed -->
+        </tr>
+    </thead>
+    <tbody id="apiTableBody"></tbody>
+</table>
+
+<button id="logCheckedButton">Log Checked IDs and Emails</button>
+
+<table id="apiTable2">
+    <thead>
+        <tr>
+            <th>Checkbox</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Number</th>
+            <th>Course ID</th>
+            <!-- Add more columns as needed -->
+        </tr>
+    </thead>
+    <tbody id="apiTableBody2"></tbody>
+</table>
+
+<script>
+    if (typeof serverURL === 'undefined') {
+        var serverURL = "http://localhost:5000" || "https://server-wheat-five.vercel.app";
+    }
+    const reservecourseURL = serverURL + "/clients/reserveCourse/";
+    async function fetchData(url) {
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return await response.json();
+        } catch (error) {
+            console.error('Error fetching data:', error.message);
+            return null;
+        }
+    }
+
+    function createTableCell(value) {
+        const cell = document.createElement('td');
+        cell.textContent = value;
+        return cell;
+    }
+
+    async function displayData() {
+        const apiTableBody = document.getElementById('apiTableBody');
+        const apiTableBody2 = document.getElementById('apiTableBody2');
+        const data = await fetchData(serverURL+'/requests/getAllReqs');
+
+        if (data && data.data && data.data.reqs) {
+            data.data.reqs.forEach(item => {
+                const row = document.createElement('tr');
+
+                // Add a checkbox column
+                const checkboxCell = document.createElement('td');
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+
+                checkboxCell.appendChild(checkbox);
+                row.appendChild(checkboxCell);
+
+                // Add data columns
+                row.appendChild(createTableCell(item._id));
+                row.appendChild(createTableCell(item.name));
+                row.appendChild(createTableCell(item.email));
+                row.appendChild(createTableCell(item.number));
+                row.appendChild(createTableCell(item.courseId));
+
+                if (item.submit === false) {
+                    apiTableBody.appendChild(row);
+                } else {
+                    apiTableBody2.appendChild(row);
+                }
+            });
+        } else {
+            console.error('Invalid or missing data:', data);
+        }
+    }
+
+    // Call the displayData function
+    displayData();
+
+    // Add event listener to the button
+    const logCheckedButton = document.getElementById('logCheckedButton');
+    if (logCheckedButton) {
+        logCheckedButton.addEventListener('click', async function () {
+            const checkedData = [];
+            const checkboxes = document.querySelectorAll('#apiTableBody input[type="checkbox"]:checked');
+
+            checkboxes.forEach(checkbox => {
+                const row = checkbox.closest('tr');
+                const id = row.cells[1].textContent;
+                const email = row.cells[3].textContent; // Assuming email is in the 4th column
+                const courseId= row.cells[5].textContent; // Assuming email is in the 4th column
+                checkedData.push({ id, email,courseId });
+            });
+
+            // Log checked IDs and emails to the console
+            console.log('Checked Data:', checkedData);
+            console.log('Array of Emails:', checkedData.map(item => item.email));
+
+            let data = {
+                ids: checkedData.map(item => item.id), // Array of checked IDs
+                emails: checkedData.map(item => item.email), // Array of checked emails
+            };
+
+            const response = await fetch(serverURL+"/requests/submit", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            // If the server successfully processes the request, update the tables
+            if (response.ok) {
+                // Clear the tables
+                apiTableBody.innerHTML = '';
+                apiTableBody2.innerHTML = '';
+
+                // Redisplay the data
+                displayData();
+                checkedData.forEach(item => {
+                    reserveCourse(item.courseId, item.email);
+                });
+            } else {
+                console.error('Error submitting data:', response.statusText);
+            }
+        });
+    } else {
+        console.error('Button with id "logCheckedButton" not found.');
+    }
+
+    const reserveCourse = async (id, email) => {
+        try {
+            let token = localStorage.getItem("token");
+            console.log(id);
+
+        
+                // Reserve request 
+                let data = {
+                    email,
+                    courseId: id,
+                };
+
+                const response = await fetch(reservecourseURL, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                console.log(await response.status);
+
+                if (await response.status == 401) {
+                    window.location.href = "login.html";
+                } else if (await response.status == 200) {
+                    console.log("done " ,response.status);
+                }
+      
+        } catch (error) {
+            console.error('Error reserving course:', error);
+        }
+    }
+</script>
+
+</body>
+</html>

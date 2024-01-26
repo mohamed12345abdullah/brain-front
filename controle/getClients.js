@@ -5,12 +5,13 @@
 const clients_table = document.querySelector(".clients-table");
 const tasks_table = document.querySelector(".tasks-table");
 
-
+const serverUrl="https://server-wheat-five.vercel.app";
+const localserver="http://localhost:5000";
 
 
 
 const fetch_clients = async () => {
-    const api = "http://localhost:5000/clients/getAllClients";
+    const api = serverUrl+"/clients/getAllClients";
 
     try {
         // Wait for the fetch to complete and get the response
@@ -52,7 +53,7 @@ const fetch_clients = async () => {
 
 const fetch_tasks=async()=>{
 
-    const api = "http://localhost:5000/tasks/getAllTasks";
+    const api = serverUrl+"/tasks/getAllTasks";
 
     try {
         // Wait for the fetch to complete and get the response
@@ -134,11 +135,12 @@ async function sendRequest(email,taskId) {
 
     var formData = {
         "email": email,
-        "taskId": taskId
+        "taskId": taskId,
+        "courseId":"65a92f5cc7fd9a98598c4557"
     };
 
     try {
-        const response = await fetch('http://localhost:5000/clients/addTask', {
+        const response = await fetch(serverUrl+'/clients/addTask', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

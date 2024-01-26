@@ -65,18 +65,19 @@
     </footer>
 
     <script>
+        const serverUrl="https://server-wheat-five.vercel.app";
         document.addEventListener("DOMContentLoaded", function () {
             // Your existing JavaScript code
-
+            console.log(window.localStorage.getItem("courseId"));
             // Fetch data from the server
-            fetch("http://localhost:5000/clients/getCourse", {
+            fetch(serverUrl+"/clients/getCourse", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    "email": "abdo@email",
-                    "courseId": "65a92f47c7fd9a98598c4553"
+                    "email": window.localStorage.getItem("email"),
+                    "courseId": window.localStorage.getItem("courseId")
                 }),
             })
                 .then(response => response.json())
