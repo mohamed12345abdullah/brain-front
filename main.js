@@ -50,6 +50,7 @@ const getAllCourses = async () => {
 const addREQ=async(id)=>{
 try {
     let token = localStorage.getItem("token");
+    console.log(token);
     console.log(id);
     if(token){  
         let data = {
@@ -63,6 +64,7 @@ try {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(data),
+            
         });
         
         if (await response.status == 401) {
