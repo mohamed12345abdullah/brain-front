@@ -22,10 +22,10 @@ const getAllCourses = async () => {
             document.getElementById("courses").innerHTML +=
                 `
                 <div class="course"> 
-                    <img src="تنزيل.jpg" alt="Course Image">
+                    <img src="${element.picture}" alt="Course Image">
                     <div class="title">${element.title}</div>
                     <div class="description">Course Description</div>
-                    <div class="price">${element.price}</div>
+                    <div class="price">price :${JSON.stringify(element.price)} EGP</div>
                     <input data-id="${element._id}" type="button" value=" Buy Course" class="buyButton">
                 </div>
                 `;
@@ -130,9 +130,11 @@ const login = async () => {
             },
             body: JSON.stringify(data),
         });
-
+        if(!response.ok){
+            document.querySelector(".res").innerHTML=" password or email is wrong"
+        }
         const token = await response.json();
-        console.log(token);
+        console.log("tokeennnn",token);
         localStorage.setItem("token", token);
         window.location.href = "profile.html";
     } catch (error) {

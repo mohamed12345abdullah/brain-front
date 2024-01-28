@@ -20,4 +20,4 @@ function showSlide(n) {
 // Automatic slideshow
 setInterval(() => {
     changeSlide(1);
-}, 3000); // Change the interval (in milliseconds) here
+}, 5000); // Change the interval (in milliseconds) here

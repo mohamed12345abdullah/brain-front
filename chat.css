@@ -1,4 +1,8 @@
+html{
+    scroll-behavior: smooth;
+}
 body {
+
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
@@ -173,11 +177,16 @@ p {
     transform: translateY(-50%);
     font-size: 20px;
     cursor: pointer;
-    color: #333;
+    color: #ec0606;
     background: none;
     border: none;
     outline: none;
+    width: 10px;
 }
 
-.prev { left: 10px; }
+.prev {
+   
+    
+    left: 10px;
+ }
 .next { right: 10px; }
