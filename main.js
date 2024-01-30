@@ -95,7 +95,8 @@ const signup = async () => {
             name: signForm.name.value,
             password: signForm.password.value,
             number: signForm.number.value,
-            picture: signForm.picture.value
+            picture: signForm.picture.value,
+            age: signForm.age.value
         };
 
         let response = await fetch(signupURL, {
