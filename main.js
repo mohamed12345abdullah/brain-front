@@ -185,7 +185,7 @@ const profile = async () => {
         user.data.courses.forEach(element => {
             console.log(element);
             coursesContainer.innerHTML += `
-                <div class="course" data-course_id=${element._id}>
+                <div class="course" data-course_id=${element}>
                     <img src="تنزيل.jpg" alt="Course Image">
                     <div class="course-details">
                         <h3>${JSON.stringify(element.title)}</h3>

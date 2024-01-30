@@ -47,8 +47,9 @@
 </table>
 
 <script>
+    // "http://localhost:5000"
     if (typeof serverURL === 'undefined') {
-        var serverURL = "http://localhost:5000" || "https://server-wheat-five.vercel.app";
+        var serverURL = 0 || "https://server-wheat-five.vercel.app";
     }
     const reservecourseURL = serverURL + "/clients/reserveCourse/";
     async function fetchData(url) {
