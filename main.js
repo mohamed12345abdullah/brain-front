@@ -176,8 +176,8 @@ const profile = async () => {
                 <img src="default.jpg" alt="Profile Picture">
                 <div class="user-info">
                     <h2>${user.data.oldClient.name}</h2>
-                    <p>Age: 22</p>
-                    <p>Occupation: Back End Developer</p>
+                    <p>Age:${user.data.oldClient.age} </p>
+                    <p>Occupation: programing student</p>
                 </div>
             </div> 
         `;
@@ -189,7 +189,7 @@ const profile = async () => {
                     <img src="${element.picture}" alt="Course Image">
                     <div class="course-details">
                         <h3>${JSON.stringify(element.title)}</h3>
-                        <p>Instructor: John Doe</p>
+                        <p>Instructor: abdullah mohamed</p>
                         <p>Description: A brief description of the course content goes here.</p>
                         <p>Progress:</p>
                         <div class="progress-bar">
