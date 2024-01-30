@@ -105,6 +105,9 @@ const signup = async () => {
             },
             body: JSON.stringify(data)
         });
+        if(!response.ok){
+            document.querySelector(".res").innerHTML=" invalid email "
+        }
 
         let token = await response.json();
         console.log(token);
