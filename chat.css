@@ -2,7 +2,7 @@ html{
     scroll-behavior: smooth;
 }
 body {
-
+    
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
@@ -190,3 +190,11 @@ p {
     left: 10px;
  }
 .next { right: 10px; }
+
+
+#content-of-course{
+    display: none;
+    /* background-color: #ec0606; */
+    /* opacity: ; */
+  
+}

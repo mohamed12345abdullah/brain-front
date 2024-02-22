@@ -42,6 +42,41 @@ const getAllCourses = async () => {
 
             });
         });
+        const coursesElement=  Array.from( document.querySelectorAll('.course'));
+        coursesElement.forEach(course=>{
+        console.log(course);
+        course.addEventListener("click",()=>{
+            console.log("123456");
+            // var url = 'https://e.com';
+            // var width = 400;
+            // var height = 300;
+            // var left = (screen.width - width) / 2;
+            // var top = (screen.height - height) / 2;
+            // var features = 'width=' + width + ',height=' + height + ',top=' + top + ',left=' + left + ',resizable=yes,scrollbars=yes,toolbar=no,location=no';
+        
+            // // Open the new window with the specified features
+            // window.open(url, 'FloatingWindow', features);
+
+            document.querySelector('body section').style.opacity='0.3';
+
+            document.querySelector('#content-of-course').style=`
+            display: block;
+            opacity: 1;
+
+            position: fixed;
+            top: 50px;
+            margin: 0 10% ;
+            width: 80%;
+            background-color: #8fbeeb;
+            height: 80vh;
+            
+            `
+
+        })
+      });
+      
+
+
     } catch (error) {
         console.error('Error fetching courses:', error);
     }
